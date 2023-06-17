@@ -50,5 +50,5 @@ const logTarget = () => {
   console.log("TargetEvent Connect DB");
 };
 
-targetEmmiter.addEventListener('connected', logTarget)
-targetEmmiter.dispatchEvent(new Event('connected'))
+targetEmmiter.addEventListener('connected', logTarget);
+targetEmmiter.dispatchEvent(new Event('connected'));
