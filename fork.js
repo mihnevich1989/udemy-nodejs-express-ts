@@ -1,14 +1,6 @@
-const { fork } = require('child_process');
+const { compute } = require('./factorial');
 
-const forkProcess = fork('forkWorker.js');
-
-forkProcess.on('message', (msg) => {
-  console.log('Server got: ', msg);
+process.on('message', (msg) => {
+  process.send(compute(msg));
+  process.disconnect();
 });
-
-forkProcess.on('close', (code) => {
-  console.log('Exited: ', code);
-});
-
-forkProcess.send('Ping');
-forkProcess.send('disconnect');
