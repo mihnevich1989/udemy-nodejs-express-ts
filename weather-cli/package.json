@@ -1,0 +1,29 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "private": false,
+  "description": "",
+  "main": "index.js",
+  "bin": "./index.js",
+  "engines": {
+    "node": ">14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "weather"
+  ],
+  "author": "mihnevich",
+  "license": "ISC",
+  "homepage": "https://github.com/mihnevich1989/udemy-nodejs-express-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mihnevich1989/udemy-nodejs-express-ts"
+  },
+  "bugs": {
+    "url": "https://github.com/mihnevich1989/udemy-nodejs-express-ts",
+    "email": "dima.mihnevich@gmail.com"
+  }
+}
