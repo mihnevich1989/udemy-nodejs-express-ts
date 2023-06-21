@@ -6,7 +6,7 @@ const filePath = join(homedir(), 'weather-data.json');
 
 const TOKEN_DICTIONARY = {
   token: 'token',
-  city: 'coty'
+  city: 'city'
 };
 
 const saveKeyValue = async (key, value) => {
