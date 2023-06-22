@@ -1,22 +1,12 @@
-import http from 'http';
-
+import express from 'express';
+const app = express();
 const host = '127.0.0.1';
 const port = 8000;
 
-const server = http.createServer((req, res) => {
-	switch (req.method) {
-		case 'GET':
-			switch (req.url) {
-				case '/hello':
-					res.statusCode = 200;
-					res.setHeader('Content-Type', 'text/plane');
-					res.end('Hellow world');
-					break;
-			}
-			break;
-	}
+app.get('/hello', (req, res) => {
+	res.send('Hello World');
 });
 
-server.listen(port, host, () => {
+app.listen(port, () => {
 	console.log('Server online', host, ':', port);
 });
