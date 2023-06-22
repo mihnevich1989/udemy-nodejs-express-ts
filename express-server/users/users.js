@@ -2,12 +2,17 @@ import express from 'express';
 
 const userRouter = express.Router();
 
+userRouter.use('/login', (req, res, next) => {
+  console.log('Middleware users');
+  next();
+});
+
 userRouter.post('/login', (req, res) => {
   res.send('login');
 });
 
-userRouter.post('/reqister', (req, res) => {
-  res.send('reqister');
+userRouter.post('/register', (req, res) => {
+  res.send('register');
 });
 
 export { userRouter };

@@ -5,11 +5,22 @@ const app = express();
 const host = 'http://localhost.com';
 const port = 8000;
 
+app.use((req, res, next) => {
+	console.log('Time ', Date.now());
+	next();
+});
+
 app.get('/', (req, res) => {
-	res.end();
+	throw new Error('Error');
+	res.send('Home');
 });
 
 app.use('/users', userRouter);
+
+app.use((err, req, res, next) => {
+	console.log(err);
+	res.status(500).send(err.message);
+});
 
 app.listen(port, () => {
 	console.log('Server online', host, ':', port);
