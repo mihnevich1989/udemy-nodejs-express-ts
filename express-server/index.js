@@ -1,20 +1,15 @@
 import express from 'express';
+import { userRouter } from './users/users.js';
+
 const app = express();
-const host = '127.0.0.1';
+const host = 'http://localhost.com';
 const port = 8000;
 
-app.get('/hello', (req, res) => {
-	res.cookie('token', 'sdawqdwqcasdqdcaxsc1222331dsasd', {
-		domain: '',
-		path: '/',
-		secure: true,
-		expires: new Date()
-	});
-	res.clearCookie('token');
-	console.log('GET method');
-	// res.send('Hi');
+app.get('/', (req, res) => {
 	res.end();
 });
+
+app.use('/users', userRouter);
 
 app.listen(port, () => {
 	console.log('Server online', host, ':', port);
