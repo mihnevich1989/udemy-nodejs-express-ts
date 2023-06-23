@@ -1,19 +1,18 @@
-let a: number = 5;
-let b: string = "1";
-let c: number = a + Number(b);
-let d: boolean = true;
-let e: number[] = [1, 2, 3];
-let f: string[] = ['str1', 'str2'];
-let tup: [number, string] = [1, 'str'];
-
-function greet(name: string): string {
-  return name + 'hi';
+let universalId: number | string = 5;
+universalId = '5';
+function prinId(id: number | string) {
+  if (typeof id == 'string') {
+    console.log(id.toUpperCase());
+  } else {
+    console.log(id);
+  }
 }
 
-f.map((x: string) => x)
+function helloUser(user: string | string[]) {
+  if (Array.isArray(user)) {
+    console.log(user.join(', ') + 'hi');
+  } else {
+    console.log(user + ' hi');
 
-function coord(coord: { lat: number, long?: number }) {
-  if (coord.long) {
-    return coord.lat + coord.long;
   }
 }
