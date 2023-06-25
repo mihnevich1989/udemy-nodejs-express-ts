@@ -1,51 +1,29 @@
-type coord = { lat: number, long: number }
+let a = 'asd';
+let b: 'hi' = 'hi';
+type direction = 'left' | 'right';
 
-interface ICoord {
-  lat: number,
-  long: number
+function moveDog(direction: direction): -1 | 0 | 1 {
+  switch (direction) {
+    case 'left':
+      return -1;
+    case 'right':
+      return 1;
+    default:
+      return 0;
+  }
 }
 
-type ID = number | string;
+let c: any = 5;
+//let d: number = <number>c;
+let d: number = c as number;
 
-function compute(coord: ICoord) {
+const connection = {
+  host: 'localhost',
+  protocol: 'https' as 'https'
+};
+
+function connect(host: string, protocol: 'http' | 'https') {
 
 }
 
-interface IAnimal {
-  name: string,
-}
-
-interface IDog extends IAnimal {
-  tail?: boolean,
-  tooth: boolean
-}
-
-/* const dog: IDog = {
-  tail: true,
-  name: 'Chak',
-  tooth: false
-} */
-
-type Animal = {
-  name: string
-}
-
-type Dog = Animal & {
-  tail: boolean
-}
-
-const anotherDog: Dog = {
-  name: 'Mud',
-  tail: false
-}
-
-interface IDog {
-  hair: boolean
-}
-
-const thirdDog: IDog = {
-  name: 'Jack',
-  tail: true,
-  hair: true,
-  tooth: false
-}
+connect(connection.host, connection.protocol);
