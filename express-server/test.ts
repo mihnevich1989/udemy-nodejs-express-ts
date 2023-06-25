@@ -1,29 +1,29 @@
-let a = 'asd';
-let b: 'hi' = 'hi';
-type direction = 'left' | 'right';
+enum Direction {
+  Left,
+  Right
+}
 
-function moveDog(direction: direction): -1 | 0 | 1 {
+
+function move(direction: Direction) {
   switch (direction) {
-    case 'left':
+    case Direction.Left:
       return -1;
-    case 'right':
+    case Direction.Right:
       return 1;
     default:
       return 0;
   }
 }
 
-let c: any = 5;
-//let d: number = <number>c;
-let d: number = c as number;
+function objMod(obj: { Left: number; }) {
 
-const connection = {
-  host: 'localhost',
-  protocol: 'https' as 'https'
 };
 
-function connect(host: string, protocol: 'http' | 'https') {
+objMod(Direction);
 
+const enum Direction2 {
+  Up,
+  Down
 }
 
-connect(connection.host, connection.protocol);
+let myDirection = Direction2.Up;
