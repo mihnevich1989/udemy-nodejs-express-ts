@@ -1,100 +1,31 @@
-class Coord {
-  message = '1';
-  lat: number;
+let a = 'Hi';
+
+if (typeof a == 'string') {
+
+}
+
+let b: typeof a;
+
+type Coord = {
+  lat: number,
   long: number;
+};
 
-  protected test() {
-    if (this.lat > 0) {
-    }
-  }
+type P = keyof Coord;
 
-  computeDistance(newLat: number, newLong: number): number {
-    return 0;
-  }
+let c: P = 'lat';
 
-  constructor(lat: number, long: number) {
-    this.lat = lat;
-    this.long = long;
-    console.log(this.message);
+/* function log(a: string | null): void {
+  if (a == null) {
+  } else {
+    a.toUpperCase();
   }
+  a?.toUpperCase();
+} */
+function log(a: string | null): void {
+  a!.toUpperCase();
 }
 
-const point = new Coord(10, 10);
-
-class MapLocation extends Coord {
-  _name: string;
-  message: "2";
-
-  public get name() {
-    return this._name;
-  }
-
-  public set name(v: string) {
-    this._name = v + '_cool!';
-  }
-
-  override computeDistance(newLat: number, newLong: number): number {
-    console.log(this._name);
-    return 1;
-  }
-
-  constructor(lat: number, long: number, name: string) {
-    super(lat, long);
-    this._name = name;
-  }
-}
-
-interface LoggerService {
-  log: (s: string) => void;
-}
-
-class Logger implements LoggerService {
-  public log(s: string) {
-    console.log(s);
-  };
-
-  private error() {
-  }
-}
-
-const l = new Logger();
-l.log('d');
-
-class MyClass {
-  static a = '1';
-}
-MyClass.a;
-
-class MyClass2<T> {
-  a: T;
-}
-
-const MyCls = new MyClass2<string>();
-MyCls.a;
-
-abstract class Base {
-  print(s: string) {
-    console.log(s);
-  }
-  abstract error(s: string): void;
-}
-
-class BaseExtended extends Base {
-  error(s: string): void {
-    throw new Error(s);
-  }
-}
-
-const be = new BaseExtended();
-be.print('test');
-
-class Animal {
-  name: string;
-}
-
-class Dog {
-  name: string;
-  tail: boolean;
-}
-
-const puppy: Animal = new Dog();
+const d: bigint = BigInt(100);
+const e: symbol = Symbol('abc');
+const f: symbol = Symbol('abc');
