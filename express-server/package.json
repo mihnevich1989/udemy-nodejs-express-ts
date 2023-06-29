@@ -1,11 +1,12 @@
 {
-  "type": "module",
+  "type": "commonjs",
   "name": "express-server",
   "version": "1.0.0",
   "description": "express server, nodejs",
-  "main": "index.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/main.js",
+    "build": "tsc",
     "dev": "nodemon start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
