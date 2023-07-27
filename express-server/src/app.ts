@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, json } from 'express';
 import { Server } from 'http';
 import { UserController } from './users/user.controller';
 import { ExeptionFilter } from './errors/exeption.filter';
@@ -24,6 +24,10 @@ export class App {
     this.host = 'http://localhost.com';
   }
 
+  useMiddleware(): void {
+    this.app.use(json());
+  }
+
   useRoutes(): void {
     this.app.use('/users', this.userController.router);
   }
@@ -33,6 +37,7 @@ export class App {
   }
 
   public async init(): Promise<void> {
+    this.useMiddleware();
     this.useRoutes();
     this.useExceptionFilters();
     this.server = this.app.listen(this.port);
