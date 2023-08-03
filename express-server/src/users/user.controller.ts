@@ -8,7 +8,6 @@ import 'reflect-metadata';
 import { IUserController } from './user.controller.interface';
 import { UserLoginDto } from './dto/user-login.dto';
 import { UserRegisterDto } from './dto/user-register.dto';
-import { User } from './user.entity';
 import { IUserService } from './users.service.interface';
 import { ValidateMiddleware } from '../common/validate.middleware';
 
@@ -44,6 +43,6 @@ export class UserController extends BaseController implements IUserController {
     if (!result) {
       return next(new HTTPError(422, 'Такой пользователь уже существует'));
     }
-    this.ok(res, result);
+    this.ok(res, { email: result.email, id: result.id });
   }
 }
